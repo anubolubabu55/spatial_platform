@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "2c34e1c2-c2fb-48aa-8806-769ac02e0905",
+		"name": "Spatial Polygons",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29411945"
+	},
+	"item": [
+		{
+			"name": "List All Polygons",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/polygons/?page=1&page_size=20",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"polygons",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Page number"
+						},
+						{
+							"key": "page_size",
+							"value": "20",
+							"description": "Items per page (max 100)"
+						},
+						{
+							"key": "name",
+							"value": "",
+							"description": "Filter by name (contains)",
+							"disabled": true
+						},
+						{
+							"key": "is_active",
+							"value": "",
+							"description": "Filter by active status (true/false)",
+							"disabled": true
+						},
+						{
+							"key": "min_area",
+							"value": "",
+							"description": "Minimum area in square meters",
+							"disabled": true
+						},
+						{
+							"key": "max_area",
+							"value": "",
+							"description": "Maximum area in square meters",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Polygon",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "     {\n         \"name\": \"Polygon Name 1\",\n         \"geometry\": {\n             \"type\": \"Polygon\",\n             \"coordinates\": [[\n            [-73.97, 40.75],\n            [-73.96, 40.75],\n            [-73.96, 40.76],\n            [-73.97, 40.76],\n            [-73.97, 40.75]\n        ]]\n         },\n         \"is_active\": true\n     }\n"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/polygons/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"polygons",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Polygon by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/polygons/3e081541-3017-4db9-afd9-6722bcedb079/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"polygons",
+						"3e081541-3017-4db9-afd9-6722bcedb079",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Polygon (PUT)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Updated Polygon Name\",\n    \"geometry\": {\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n            [\n                [\n                    -73.97,\n                    40.75\n                ],\n                [\n                    -73.96,\n                    40.75\n                ],\n                [\n                    -73.96,\n                    40.76\n                ],\n                [\n                    -73.97,\n                    40.76\n                ],\n                [\n                    -73.97,\n                    40.75\n                ]\n            ]\n        ]\n    },\n    \"is_active\": true\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/polygons/3e081541-3017-4db9-afd9-6722bcedb079/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"polygons",
+						"3e081541-3017-4db9-afd9-6722bcedb079",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Partial Update Polygon (PATCH)",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Partially updated polygon description\",\n    \"properties\": {\n        \"last_modified\": \"2024-01-15\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/polygons/3e081541-3017-4db9-afd9-6722bcedb079/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"polygons",
+						"3e081541-3017-4db9-afd9-6722bcedb079",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Polygon",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/polygons/3e081541-3017-4db9-afd9-6722bcedb079/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"polygons",
+						"3e081541-3017-4db9-afd9-6722bcedb079",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Polygons Containing Point",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/polygons/containing-point/?lat=40.755&lng=-73.965",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"polygons",
+						"containing-point",
+						""
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "40.755",
+							"description": "Latitude of the point"
+						},
+						{
+							"key": "lng",
+							"value": "-73.965",
+							"description": "Longitude of the point"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Intersecting Polygons",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/polygons/dd6cb539-c6a0-4713-910b-a7c94d275d0f/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"polygons",
+						"dd6cb539-c6a0-4713-910b-a7c94d275d0f",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Create Polygons",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "     {\n         \"polygons\": [\n             {\n                 \"name\": \"Polygon 1\",\n                 \"geometry\": {\n                     \"type\": \"Polygon\",\n                     \"coordinates\": [[\n                    [-73.99, 40.75],\n                    [-73.98, 40.75],\n                    [-73.98, 40.76],\n                    [-73.99, 40.76],\n                    [-73.99, 40.75]\n                ]]\n                 },\n                 \"is_active\": true\n             },\n             {\n                 \"name\": \"Polygon 2\",\n                 \"geometry\": {\n                     \"type\": \"Polygon\",\n                     \"coordinates\": [[\n                    [-73.99, 40.75],\n                    [-73.98, 40.75],\n                    [-73.98, 40.76],\n                    [-73.99, 40.76],\n                    [-73.99, 40.75]\n                ]]\n                 },\n                 \"is_active\": true\n             }\n         ]\n     }\n\n"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/polygons/bulk/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"polygons",
+						"bulk",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "80e5f9b0-4636-493c-9bbc-5e0a592011cc",
+		"name": "Spatial Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29411945"
+	},
+	"item": [
+		{
+			"name": "List All Points",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"adycoders\",\r\n    \"password\": \"Password@123\"\r\n    \r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/points/?page=1&page_size=20",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"points",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "page_size",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Point",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "     {\r\n         \"name\": \"Point Name 111\",\r\n         \"location\": {\r\n             \"type\": \"Point\",\r\n             \"coordinates\": [-73.965355, 40.782865]\r\n         },\r\n         \"is_active\": true\r\n     }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/points/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"points",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Create Points",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "     {\r\n         \"points\": [\r\n             {\r\n                 \"name\": \"Point 1\",\r\n                 \"location\": {\r\n                     \"type\": \"Point\",\r\n                     \"coordinates\": [-73.996315, 40.706086]\r\n                 },\r\n                 \"is_active\": true\r\n             },\r\n             {\r\n                 \"name\": \"Point 2\",\r\n                 \"location\": {\r\n                     \"type\": \"Point\",\r\n                     \"coordinates\": [-73.996315, 40.706086]\r\n                 },\r\n                 \"is_active\": true\r\n             }\r\n         ]\r\n     }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/points/bulk/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"points",
+						"bulk",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Point by ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/points/f48b9e59-067a-4d7a-b09b-fb95cd7cf071/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"points",
+						"f48b9e59-067a-4d7a-b09b-fb95cd7cf071",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Nearby Points",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/points/nearby/?lat=40.782865&lng=-73.965355",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"points",
+						"nearby",
+						""
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "40.782865"
+						},
+						{
+							"key": "lng",
+							"value": "-73.965355"
+						},
+						{
+							"key": "distance",
+							"value": "1000",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Point",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "     {\r\n         \"name\": \"Updated Point Name\",\r\n         \"location\": {\r\n             \"type\": \"Point\",\r\n             \"coordinates\": [-73.965355,\r\n            40.782865]\r\n         },\r\n         \"is_active\": true\r\n     }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/points/f48b9e59-067a-4d7a-b09b-fb95cd7cf071/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"points",
+						"f48b9e59-067a-4d7a-b09b-fb95cd7cf071",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Partial Update Point",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "     {\r\n         \"name\": \"Updated Point Name\",\r\n         \"location\": {\r\n             \"type\": \"Point\",\r\n             \"coordinates\": [-73.965355,\r\n            40.782865]\r\n         },\r\n         \"is_active\": true\r\n     }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/points/f48b9e59-067a-4d7a-b09b-fb95cd7cf071/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"points",
+						"f48b9e59-067a-4d7a-b09b-fb95cd7cf071",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Point",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/points/f48b9e59-067a-4d7a-b09b-fb95cd7cf071/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"points",
+						"f48b9e59-067a-4d7a-b09b-fb95cd7cf071",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Analysis Summary",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/api/analysis/summary/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"analysis",
+						"summary",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
