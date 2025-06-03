@@ -22,10 +22,6 @@ class StandardResultsSetPagination(PageNumberPagination):
     page_size_query_param = 'page_size'
     max_page_size = 100
 
-# =============================================================================
-# SPATIAL POINT DATA APIs
-# =============================================================================
-
 @api_view(['GET', 'POST'])
 @permission_classes([AllowAny])
 def spatial_points_list_create(request):
@@ -171,10 +167,6 @@ def spatial_points_bulk_create(request):
         return Response(response_data, status=status.HTTP_207_MULTI_STATUS)
     
     return Response(response_data, status=status.HTTP_201_CREATED)
-
-# =============================================================================
-# SPATIAL POLYGON DATA APIs
-# =============================================================================
 
 @api_view(['GET', 'POST'])
 @permission_classes([AllowAny])
@@ -340,10 +332,6 @@ def spatial_polygons_bulk_create(request):
         return Response(response_data, status=status.HTTP_207_MULTI_STATUS)
     
     return Response(response_data, status=status.HTTP_201_CREATED)
-
-# =============================================================================
-# SPATIAL ANALYSIS APIs
-# =============================================================================
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
